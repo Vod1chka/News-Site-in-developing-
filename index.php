@@ -31,26 +31,39 @@ error_reporting(E_ALL);
   </head>
 <body>
   <?php require_once "header.php";?>
-    <div class="col-md-4">
-      <div class="card mb-4 box-shadow">
-        <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Пример заголовка</h4>
-          <div class="card-body">
-            <p class="card-text">Пример новости</p>
-            <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Подробнее</button>
-              <?php     
-              if($_COOKIE["user"] == 'Да'):
-              ?>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Редактировать</button>
-              <?php endif; ?>
+   <div class="container mt-5">
+     <h3>Статьи</h3>
+    
+  <?php require_once 'form for registration/database/db.php'; ?>
+  <?php $results = $mysql->query("SELECT * FROM `mynews` ORDER BY id DESC LIMIT 15"); ?>
+  <?php foreach ($results as $row): ?>
+
+     <div class="col">    
+     <div class="card mb-4 rounded-3 shadow-sm">  
+     <div class="card-header py-3">  
+        <h4 class="my-0 fw-normal"><?php echo htmlspecialchars($row['ntitle'], ENT_QUOTES); ?></h4>
+     </div>
+        <div class="card-body">
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><?php echo htmlspecialchars($row['ntext'], ENT_QUOTES);?></li>
+          </ul>
+            <button type="button" class="w-100 btn btn-sm-2 btn-outline-secondary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false">Подробнее</button>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-block">
+                  <br><p class="card-header py-3"> <?php echo htmlspecialchars($row['newstext'], ENT_QUOTES); ?></p></br>
+                </div>
+              </div>
+
+            <!--  -->
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-10"><br>Дата и время публикации:</br> <?php echo htmlspecialchars($row['ndate'], ENT_QUOTES);?></div>
+                    <div class="col-md-2"><br>Автор поста:</br> <?php echo htmlspecialchars($row['nuser'], ENT_QUOTES);?></div>     
             </div>
-            <small class="text-muted">9 mins</small>
           </div>
         </div>
       </div>
     </div>
+  <?php endforeach;?>
 </body>
 </html>
-

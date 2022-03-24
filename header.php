@@ -1,3 +1,9 @@
+<?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+?>
+
 <header class="p-3 bg-dark text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
@@ -12,7 +18,7 @@
       ?>
 
         <div class="text-end">
-          <button onclick="document.location='save.php'" type="button" class="btn btn-outline-light me-2">Предложить новость</button>
+          <button onclick="document.location='news.php'" type="button" class="btn btn-outline-light me-2">Предложить новость</button>
           <button onclick="document.location=''" type="button" class="btn btn-outline-light me-2">Личный кабинет</button>
           <button onclick="document.location='form for registration/validation-form/exit.php'" type="button" class="btn btn-warning">Выход</button>
         </div>

@@ -19,7 +19,4 @@ if(($user) == 0) {
     setcookie('user', 'Да', time()+3600, '/');
     header('Location:/');
 }
-
-
-
 ?>

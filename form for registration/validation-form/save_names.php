@@ -27,16 +27,16 @@ if (!empty($myrow['id'])) {
     exit();
 }
 if (($fmsg and $fsmsg) == 0) {
+
 //сохраняем нового пользователя
 $salt     = "54uy217sgh";
 $password = md5($password.$salt);
 $sql      = 'INSERT INTO MyGuests (email,username,password) VALUES (:email,:username,:password)';
 $query    = $mysql->prepare($sql);
-$query->execute(['email' => $email,'username' => $username,'password' => $password]);
+$query    -> execute(['email' => $email,'username' => $username,'password' => $password]);
 
 $smsg = "Регистрация прошла успешно";
 require_once "../register.php";
-//echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. <a href='/login.php'>Авторизация</a>";
 }
 ?>
     </body>
