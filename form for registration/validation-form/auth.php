@@ -12,8 +12,7 @@ $user 	 = $results->fetch(PDO::FETCH_ASSOC);
 if(($user) == 0) {
     //echo "Неверный логин или пароль";
     $fmsg  = "Неверное имя пользователя или пароль";
-    require_once "../login.php";
-    exit();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 } else {
     //echo ("Вы успешно авторизовались");
     setcookie('user', 'Да', time()+3600, '/');
