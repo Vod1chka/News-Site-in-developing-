@@ -1,5 +1,5 @@
 <?php
-require_once 'form for registration/database/db.php';
+require_once 'registration-form/database/db.php';
 
 $ntitle   = addslashes($_POST['ntitle']);
 $ntext    = addslashes($_POST['ntext']);
