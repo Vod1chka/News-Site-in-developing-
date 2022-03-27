@@ -40,23 +40,21 @@
                         <li><?php echo htmlspecialchars($row['ntext'], ENT_QUOTES); ?></li>
                     </ul>
                     <button type="button" class="w-100 btn btn-sm-2 btn-outline-secondary" data-toggle="collapse"
-                            data-target="#collapseExample" aria-expanded="false">Подробнее
+                            data-target="#collapseExample<?php echo($row['id']); ?>" aria-expanded="false">Подробнее
                     </button>
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse" id="collapseExample<?php echo($row['id']); ?>">
                         <div class="card card-block">
                             <br>
-                            <p class="card-header py-3"> <?php echo htmlspecialchars($row['newstext'],
-                                    ENT_QUOTES); ?></p></br>
+                            <p class="card-header py-3"> <?php echo htmlspecialchars($row['newstext'], ENT_QUOTES); ?></p></br>
                         </div>
                     </div>
 
                     <!--  -->
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-10"><br>Дата и время
-                                публикации:</br> <?php echo htmlspecialchars($row['ndate'], ENT_QUOTES); ?></div>
-                            <div class="col-md-2"><br>Автор поста:</br> <?php echo htmlspecialchars($row['nuser'],
-                                    ENT_QUOTES); ?></div>
+                            <div class="col-md-10"><br>Дата публикации: <?php echo (new DateTime($row['ndate']))->format('d/m/Y');?></br> 
+                                Время публикации: <?php echo (new DateTime($row['ndate']))->format('H:i:s');?></div>
+                            <div class="col-md-2"><br>Автор поста:</br> <?php echo htmlspecialchars($row['nuser'], ENT_QUOTES); ?></div>
                         </div>
                     </div>
                 </div>

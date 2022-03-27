@@ -68,7 +68,8 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-4" id="username" name="username"
                                    placeholder="Введите имя пользователя"
-                                   pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$" required>
+                                   minlength="4" maxlength="20" 
+                                   pattern="^[a-zA-Z0-9]+$" required>
                             <label for="username">Имя пользователя</label>
                             <div class="invalid-feedback">
                                 Неверное имя пользователя.

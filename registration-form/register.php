@@ -1,3 +1,4 @@
+<?php require_once "../header.php"; ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -47,6 +48,7 @@
       id="modalSignin">
     <form class="form-signin needs-validation" novalidate method="post" action="validation-form/save_names.php"
           oninput='confirmPassword.setCustomValidity(confirmPassword.value != password.value ? false : "")'>
+        
         <!-- Front Side -->
         <div class="modal-dialog" role="document">
             <div class="modal-content rounded-5 shadow">
@@ -58,12 +60,25 @@
                             aria-label="Close"></button>
                 </div>
 
-                <?php if (isset($smsg)) { ?>
-                    <div class="alert alert-success" role="alert"> <?php echo $smsg; ?> </div> <?php } ?>
-                <?php if (isset($fmsg)) { ?>
-                    <div class="alert alert-danger" role="alert"> <?php echo $fmsg; ?> </div> <?php } ?>
-                <?php if (isset($fsmsg)) { ?>
-                    <div class="alert alert-danger" role="alert"> <?php echo $fsmsg; ?> </div> <?php } ?>
+
+                <?php if (isset($_SESSION['sucesMsg'])): ?>
+                    <div class="alert alert-success" role="alert"> <?php echo $_SESSION['sucesMsg']; ?><br>
+                        <button onclick="document.location='login.php'" type="button"
+                            class="btn btn-success btn-sm">Авторизация
+                        </button> 
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!isset($_COOKIE["user"]) && isset($_SESSION['err1Msg'])): ?>
+                    <div class="alert alert-danger" role="alert"> <?php echo $_SESSION['err1Msg']; ?> </div>
+                <?php endif; ?>
+
+                <?php if (!isset($_COOKIE["user"]) && isset($_SESSION['err2Msg'])): ?>
+                    <div class="alert alert-danger" role="alert"> <?php echo $_SESSION['err2Msg']; ?> </div>
+                <?php endif; ?>
+
+
+
 
                 <!-- Register Form -->
                 <div class="form-group">

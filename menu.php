@@ -3,19 +3,15 @@
         <div class="d-flex flex-wrap align-items-start justify-content-start justify-content-lg-start">
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-start mb-md-0">
-                <li><a href="index.php" class="nav-link px-2 text-white">Главная</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Новости</a></li>
+                <li><a href="/" class="nav-link px-2 text-white">Главная</a></li>
             </ul>
 
             <?php if ($_COOKIE["user"] == 'Да'): ?>
                 <div class="text-end">
-                    <button onclick="document.location='news.php'" type="button" class="btn btn-outline-light me-2">
+                    <button onclick="document.location='publication/news.php'" type="button" class="btn btn-outline-light me-2">
                         Предложить новость
                     </button>
-                    <button onclick="document.location=''" type="button" class="btn btn-outline-light me-2">Личный
-                        кабинет
-                    </button>
-                    <button onclick="document.location='registration-form/validation-form/exit.php'" type="button"
+                    <button onclick="document.location='../../registration-form/validation-form/exit.php'" type="button"
                             class="btn btn-warning">Выход
                     </button>
                 </div>

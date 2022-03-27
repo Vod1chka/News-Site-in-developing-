@@ -1,4 +1,4 @@
-<?php require_once "header.php"; ?>
+<?php require_once "../header.php"; ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -27,8 +27,8 @@
 </head>
 <body class="modal modal-signin position-static d-block bg-dark py-5 text-center" tabindex="-1" role="dialog"
       id="modalSignin">
-    <form class="form-signin needs-validation" method="post" action="save.php">
-        <?php require_once "menu.php"; ?>
+    <form class="form-signin needs-validation" method="post" action="SaveNews.php">
+        <?php require_once "../menu.php"; ?>
 
         <!-- Front Side -->
         <div class="modal-dialog" role="document">
@@ -37,26 +37,24 @@
                 <!-- Header -->
                 <div class="modal-header p-5 pb-4 border-bottom-0">
                     <h2 class="fw-bold mb-0">Предложение новости</h2>
-                    <button onclick="document.location='/'" type="button" class="btn-close" data-bs-dismiss="modal"
+                    <button onclick="document.location='../'" type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>
 
-                <?php if (isset($nmsg)) { ?>
-                    <div class="alert alert-success" role="alert"> <?php echo $nmsg; ?> </div> <?php } ?>
+                <?php if (isset($_SESSION['nmsg'])): ?>
+                    <div class="alert alert-success" role="alert"><h5><?php echo $_SESSION['nmsg']; ?></h5>
+                        <small><p class="regtext"><a href="/">Вернуться на главную</a></p></small> 
+                    </div>
+                <?php endif; ?>
+
 
                 <!-- News Form -->
                 <div class="modal-body p-5 pt-0">
+  
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-4" id="title" name="ntitle" placeholder="ntitle"
                                required>
                         <label for="title">Заголовок</label>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control rounded-4" id="nuser" name="nuser" placeholder="nuser"
-                               minlength="4"
-                               maxlength="20" pattern="^[a-zA-Z0-9]+$" required>
-                        <label for="nuser">Автор статьи</label>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -70,6 +68,7 @@
                                   style="height: 100px" required></textarea>
                         <label for="newstext">Полный текст статьи</label>
                     </div>
+
 
                     <!-- Triggering button -->
                     <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" id="submitBtn" type="submit">
