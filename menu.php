@@ -11,7 +11,7 @@
                     <button onclick="document.location='publication/news.php'" type="button" class="btn btn-outline-light me-2">
                         Предложить новость
                     </button>
-                    <button onclick="document.location='../../registration-form/validation-form/exit.php'" type="button"
+                    <button onclick="document.location='../registration-form/validation-form/exit.php'" type="button"
                             class="btn btn-warning">Выход
                     </button>
                 </div>
