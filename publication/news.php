@@ -27,7 +27,7 @@
 </head>
 <body class="modal modal-signin position-static d-block bg-dark py-5 text-center" tabindex="-1" role="dialog"
       id="modalSignin">
-    <form class="form-signin needs-validation" method="post" action="saveNews.php">
+    <form class="form-signin needs-validation" method="post" action="save_news.php">
         <?php require_once "../menu.php"; ?>
 
         <!-- Front Side -->
